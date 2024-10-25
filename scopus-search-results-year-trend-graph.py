@@ -104,7 +104,7 @@ def main() -> None:
 
     plot_data = {}
     for term, counts in sorted(publication_counts.items(), key=lambda item: item[1]["Total"], reverse=True):
-        if publication_counts[term]["Total"] > 35000 or publication_counts[term]["Total"] < 195:
+        if publication_counts[term]["Total"] > 35000 or publication_counts[term]["Total"] < 150:
             continue    
         for year in yearRange:
             if year == "Total":
@@ -113,7 +113,7 @@ def main() -> None:
                 plot_data[term] = {}                     
             plot_data[term][year] = publication_counts[term][year]
 
-    plt.figure(figsize=(10, 5.5))
+    plt.figure(figsize=(10, 6))
     for term, counts in plot_data.items():
         years = list(counts.keys())
         counts_values = list(counts.values())
